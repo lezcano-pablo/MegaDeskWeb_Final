@@ -47,7 +47,7 @@ body {
     color: white;
 }
 
-/* ANCHOR TAGS, SEARCH BUTTONS, SUBMIT BUTTONS, CREATE AND DELETE BUTTONS */
+/* ANCHOR TAGS, SEARCH BUTTONS, SUBMIT BUTTONS, CREATE AND DELETE BUTTONS, SELECT AND RADIO BUTTONS */
 
 a 
 {
@@ -59,49 +59,59 @@ a:hover
     text-shadow: 2px 1px 2px grey;
 }
 
-input 
+input, select
 {
     font-family: 'Montserrat', sans-serif;
     font-size: inherit;
 }
 
-input[type=text], input[type=number], input[type=date]
-{
-    width: 40%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
+    input[type=text], input[type=number], input[type=date], select {
+        width: 40%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
 
-input[type=submit], #createButton 
-{
-    width: 40%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    input[type=submit], #createButton {
+        width: 40%;
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
 
-input[type=submit]:hover, #createButton:hover 
+input[type=submit]:hover, #createButton:hover
 {
     background-color: #45a049;
     box-shadow: 1px 1px 5px black;
 }
 
-input[type=text]:hover, input[type=number]:hover, input[type=date]:hover, #createButton:hover
-{
-    box-shadow: 2px 1px 5px black;
-}
+        input[type=text]:hover, input[type=number]:hover, input[type=date]:hover, #createButton:hover, select:hover
+        {
+            box-shadow: 2px 1px 5px black;
+        }
 
 input[type=text]:focus 
 {
     background-color: #f4f8f9;
+}
+
+input[type=radio]
+{
+    width: 20px;
+    height: 20px;
+}
+
+input[type=radio]:hover 
+{
+    transition: transform .2s;
+    transform: scale(1.2, 1.2);
 }
 
 #deleteButton 
@@ -113,6 +123,7 @@ input[type=text]:focus
 {
     color: #cc0000;
 }
+
 span 
 {
     color: red;

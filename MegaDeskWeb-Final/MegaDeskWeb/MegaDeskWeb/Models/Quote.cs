@@ -19,7 +19,7 @@ namespace MegaDeskWeb.Models
         [Range(12, 48)]
         public int Depth { get; set; }
         [Range(0, 7)]
-        [Display(Name = "Number of Drawers")]
+        [Display(Name = "Drawers")]
         public int NumOfDrawers { get; set; }
         public string Material { get; set; }
       
@@ -55,12 +55,12 @@ namespace MegaDeskWeb.Models
 
         }
 
-        [Display(Name = "Rush Order")]
+        [Display(Name = "Rush")]
         public int RushOrder { get; set; }
         [Display(Name = "Quote Date")]
         [DataType(DataType.Date)]
         public DateTime QuoteDate { get; set; }
-        [Display(Name = "Total Amount")]
+        [Display(Name = "Total")]
         public decimal TotalAmount { get; set; }
 
         public int CONSTANT_MAXWIDTH = 96;

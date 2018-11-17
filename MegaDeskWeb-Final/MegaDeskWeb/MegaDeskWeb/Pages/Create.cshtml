@@ -50,10 +50,10 @@
             </div>
             <br />
             <div class="form-group">
-                <label>Select your Rush Days (Normal Rush Days are 14 days</label>
+                <label>Select your Rush Days (No Rush = 14 days)</label>
                 <br />
                 <radiogroup>
-                    <input type="radio" asp-for="Quote.RushOrder" value="0" @*class="form-control" *@ /> N/A <br />
+                    <input type="radio" asp-for="Quote.RushOrder" value="0" @*class="form-control" *@ /> No Rush <br />
                     <input type="radio" asp-for="Quote.RushOrder" value="3" @*class="form-control" *@ /> 3 Days <br />
                     <input type="radio" asp-for="Quote.RushOrder" value="5" @*class="form-control" *@ /> 5 Days<br />
                     <input type="radio" asp-for="Quote.RushOrder" value="7" @*class="form-control" *@ /> 7 Days<br />
