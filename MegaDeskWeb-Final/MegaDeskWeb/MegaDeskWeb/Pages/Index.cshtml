@@ -1,0 +1,103 @@
+﻿@page
+@model MegaDeskWeb.Pages.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<link rel="stylesheet" href="~/css/eliasStyle.css" />
+<h2>Index</h2>
+<p>
+    <a id="createButton" asp-page="Create">Create New</a>
+</p>
+<form class="searches">
+    <p>
+        Search by Name or by Material: <input type="text" name="SearchString">
+        <input type="submit" value="Filter" />
+    </p>
+   
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Width)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Depth)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].NumOfDrawers)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].Material)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].RushOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].QuoteDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quote[0].TotalAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Quote)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Width)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Depth)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumOfDrawers)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Material)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RushOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuoteDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalAmount)
+                </td>
+                <td id="edd">
+                    <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a>
+                    <a asp-page="./Details" asp-route-id="@item.ID">Details</a>
+                    <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@{
+    var prevDisabled = !Model.Quote.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Quote.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Quote.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Quote.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-default @nextDisabled">
+    Next
+</a>
